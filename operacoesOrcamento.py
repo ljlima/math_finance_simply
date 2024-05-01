@@ -1,8 +1,8 @@
-from operacoesBasicas import soma, subtracao,multiplicacao
+from operacoesBasicas import somatorio, subtracao,multiplicacao, potenciacao, divisao,somaSimples
 
 def passivo():
     print("\n\nInsira Despesas (gastos) e quando acabar digite 'n'\n\n")
-    somatorioDespesa, despesaMedia = soma()
+    somatorioDespesa, despesaMedia = somatorio()
     
     return  somatorioDespesa, despesaMedia
 
@@ -10,7 +10,7 @@ def passivo():
 
 def ativo():
     print("\n\nInsira receitas (ganhos) e quando acabar digite 's'\n\n")
-    somatorioReceita, receitaMedia = soma()
+    somatorioReceita, receitaMedia = somatorio()
     
     return somatorioReceita, receitaMedia
 
@@ -31,3 +31,20 @@ def fazerBalanco():
 
 
         
+def jurosSimplesComposto():
+    valorInical = float(input("Insira o valor da compra à vista: "))
+    juros = float(input("Insira o juros simples em porcentagem:  "))/100
+    numeroMeses = int(input("Insira a quantidade de parcelas:  "))
+
+    jurosSimplesPago = multiplicacao(valorInical,numeroMeses)
+    jurosSimplesPago = multiplicacao(jurosSimplesPago,juros)
+    valorTotalJurosSimples = somaSimples(valorInical,jurosSimplesPago)
+
+    potenciaJuros = potenciacao(1+juros,numeroMeses)
+    valorTotalJurosCompostos = multiplicacao(valorInical,potenciaJuros)
+    jurosCompostosPago = subtracao(valorTotalJurosCompostos,valorInical)
+
+    return valorTotalJurosSimples, valorTotalJurosCompostos, jurosSimplesPago, jurosCompostosPago
+
+
+

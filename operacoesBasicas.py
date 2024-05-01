@@ -1,4 +1,7 @@
-def soma():
+def somaSimples(valor1,valor2):
+    return valor1+valor2
+
+def somatorio():
     somatorio = 0.0
     valor = 0.0
     contaInsercaoValores = 0
@@ -25,3 +28,14 @@ def divisao(valor1,valor2):
         print("Insira um valor maior que zero!! Erro 01")
     else:
         return valor1/valor2
+    
+def potenciacao(valor1, expoente):
+    resultado = 1
+    if(expoente == 0):
+        resultado = 1
+    else:
+        for i in range(1,expoente):
+            resultado *= valor1
+
+    return resultado
+        
